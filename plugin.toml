@@ -1,12 +1,11 @@
 id = "soulmanyes/split-reset"
 name = "Split Reset"
 version = "1.0.0"
-# 32: same API level as the other local plugins.
-plugin_api = 32
+plugin_api = 34
 author = "Soulmanyes"
 license = "CC0-1.0"
 icon = "layout-columns"
-description = "Click to set every dwindle split on this monitor's workspace back to 50/50. Needs split_reset() from the Hyprland config."
+description = "One click sets every Hyprland dwindle split on the bar's monitor back to 50/50."
 tags = ["hyprland", "bar"]
 dependencies = ["hyprctl"]
 

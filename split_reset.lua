@@ -7,6 +7,9 @@
 -- window geometry and moves each divider with a relative resize on a window
 -- next to it. Resizes target windows by address, so focus never changes.
 --
+-- The bar widget runs this file with `hyprctl eval`. To use it from a
+-- keybind too, require it from hyprland.lua.
+--
 --   split_reset()                          active workspace
 --   split_reset({ monitor = "DP-1" })      that monitor's active workspace
 --   split_reset({ workspace = "77" })      a given workspace

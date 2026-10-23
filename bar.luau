@@ -1,7 +1,7 @@
 --!nonstrict
 -- Split Reset bar widget: a click sets every split on this bar's monitor
--- back to 50/50. The work happens in split_reset(), defined by
--- hyprland/split_reset.lua, loaded into Hyprland's own Lua config.
+-- back to 50/50. The work happens in split_reset.lua, which runs inside
+-- Hyprland's own Lua through `hyprctl eval`.
 
 function update()
   barWidget.setGlyph("layout-columns")
@@ -13,10 +13,11 @@ end
 function onClick()
   -- each bar resets its own monitor, not the focused one
   local out = barWidget.outputName()
-  local call = "split_reset()"
+  local opts = ""
   if out ~= nil and out ~= "" then
-    call = string.format("split_reset({ monitor = %q })", out)
+    opts = string.format("{ monitor = %q }", out)
   end
+  local call = string.format("dofile(%q); split_reset(%s)", noctalia.pluginDir() .. "/split_reset.lua", opts)
   local queued = noctalia.runAsync({ "hyprctl", "eval", call }, function(result)
     local text = type(result) == "table" and (result.stdout or "") or ""
     if text:find("error") then
