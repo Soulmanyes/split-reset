@@ -23,6 +23,10 @@ A bar button for Hyprland's dwindle layout. One click puts every split on that b
 
 For example: four windows in a 2×2 grid, with the middle divider dragged to one side. One click makes them four equal quarters again.
 
+| Before | After |
+| --- | --- |
+| ![Four windows with the middle divider dragged to the right](screenshots/before.png) | ![The same four windows back to equal quarters](screenshots/after.png) |
+
 Each bar resets its own monitor, not the focused one. Focus and the cursor don't move.
 
 ### Keybind (optional)
